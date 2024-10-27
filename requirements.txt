@@ -6,4 +6,4 @@ scikit-learn
 openai
 imbalanced-learn
 xgboost
-
+python-dotenv
