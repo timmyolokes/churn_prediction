@@ -7,10 +7,23 @@ import utils as ut
 import streamlit as st
 from openai import OpenAI
 
+from dotenv import load_dotenv, dotenv_values
+
+load_dotenv()
+
+api_key = os.getenv('GROQ_API_KEY')
+if not api_key:
+    raise ValueError("GROQ_API_KEY environment variable not set.")
+
 client = OpenAI(
   base_url="https://api.groq.com/openai/v1",
-  api_key=os.environ.get('GROQ_API_KEY')
+  api_key=api_key
 )
+
+# client = OpenAI(
+#   base_url="https://api.groq.com/openai/v1",
+#   api_key=os.environ.get('GROQ_API_KEY')
+# )
 
 
 def load_model(filename):
